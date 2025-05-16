@@ -1,0 +1,10 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Example: Add a custom font or base style if not fully handled by Tailwind theme */
+/* body {
+  font-family: 'Inter', sans-serif; // Make sure to import Inter or replace
+} */
+    

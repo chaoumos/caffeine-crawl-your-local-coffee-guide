@@ -1,0 +1,41 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+import { Image } from '@astrojs/image/components';
+import { format } from 'date-fns';
+
+interface Props {
+    frontmatter: CollectionEntry<'blog'>['data'];
+}
+
+const { frontmatter } = Astro.props;
+
+const formattedDate = format(frontmatter.pubDate, 'MMMM dd, yyyy');
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+    <article class="prose lg:prose-xl max-w-3xl mx-auto py-8">
+        <h1 class="text-3xl font-bold text-center mb-4">{frontmatter.title}</h1>
+        <div class="text-center text-gray-500 mb-6">
+            Published: {formattedDate} | Author: {frontmatter.author}
+        </div>
+        {frontmatter.image && (
+            <div class="mb-6">
+                <Image
+                    src={frontmatter.image}
+                    alt={frontmatter.title}
+                    width={800}
+                    height={450}
+                    class="rounded-lg shadow-md w-full"
+                    format="webp"
+                />
+            </div>
+        )}
+
+        <slot />
+    </article>
+</BaseLayout>
+
+<style>
+    /* You can add component-specific styles here, if needed */
+</style>

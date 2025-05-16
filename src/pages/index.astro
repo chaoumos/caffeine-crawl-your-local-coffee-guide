@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Caffeine Crawl: Your Local Coffee Guide";
+const blogName = "Caffeine Crawl";
+const blogTheme = "Discovering and reviewing local coffee shops.";
+---
+
+<BaseLayout pageTitle={pageTitle} description="The home page for Caffeine Crawl.">
+	<div class="hero bg-base-200 py-20">
+		<div class="hero-content text-center">
+			<div class="max-w-md">
+				<h1 class="text-5xl font-bold">Welcome to {blogName}</h1>
+				<p class="py-6">{blogTheme} We help you find the best local coffee experiences. Explore our map, read reviews, and share your own!</p>
+				<a href="/blog" class="btn btn-primary">Explore Coffee Shops</a>
+			</div>
+		</div>
+	</div>
+</BaseLayout>
